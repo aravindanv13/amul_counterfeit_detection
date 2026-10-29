@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: amul-counterfeit-detection
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEMO_FOLDER_SCORING
+        value: "1"
+      - key: DEMO_IMAGE_FOLDER
+        value: ft_project_images
+      - key: TESSERACT_CMD
+        value: /usr/bin/tesseract
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: MAX_CONTENT_LENGTH_MB
+        value: "16"
