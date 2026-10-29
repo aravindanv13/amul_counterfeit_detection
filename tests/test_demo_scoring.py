@@ -27,7 +27,7 @@ class TestDemoScoring(unittest.TestCase):
                     self.assertEqual(result["computed_analysis"], original)
                     self.assertEqual(original["risk_score"], raw)
                     self.assertEqual(result["risk_level"], result["risk_tier"])
-                    self.assertIn("DEMO RESULT", result["recommendation"])
+                    self.assertEqual(result["recommendation"], "Reference-image demo score.")
         raw = {"risk_score": 85}
         self.assertIs(apply_demo_score(raw, None), raw)
 

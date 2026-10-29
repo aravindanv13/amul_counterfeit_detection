@@ -52,10 +52,5 @@ def apply_demo_score(analysis, source):
         "scoring_mode": "folder_demo",
         "demo_source": source,
         "computed_analysis": dict(analysis),
-        "recommendation": (
-            "DEMO RESULT: Score follows the local image-folder demo policy "
-            "(fake: above 25%; original/other: at most 15%). "
-            "This is not an authenticity prediction. "
-            f"Calculated engine score: {raw_score:g}%."
-        ),
+        "recommendation": "Reference-image demo score.",
     }
